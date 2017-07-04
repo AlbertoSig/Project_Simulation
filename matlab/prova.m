@@ -1,7 +1,7 @@
 clear;
 close all;
 save_flag = 0;
-load('original_path.mat');
+load('original_path2relay.mat');
 x = importdata('x.txt');
 y = importdata('y.txt');
 z = importdata('z.txt');
@@ -42,6 +42,7 @@ plot(x_original,y_original,'--');
 xlabel('x');
 ylabel('y');
 legend('rov path','original path');
+%axis([900 1100 -100 100]);
 if save_flag == 1
     savefig(['sim60tdma\',type,'ROVpath_ROVperiod',int2str(ROV_period)])
     saveas(gcf,['sim60tdma\',type,'ROVpath_ROVperiod',int2str(ROV_period),'.png']);

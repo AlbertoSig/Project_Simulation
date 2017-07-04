@@ -18,7 +18,7 @@ grep -io 'ROV period[]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data.txt
 grep -i 'adaptive' my_log.txt | grep -io [0-9] >> data.txt
 grep -i 'constant' my_log.txt | grep -io [0-9] >> data.txt
 
-cp ./x.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
-cp ./y.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
-cp ./z.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
-cp ./data.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
+cp ./x.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
+cp ./y.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
+cp ./z.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
+cp ./data.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
