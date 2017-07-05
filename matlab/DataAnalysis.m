@@ -6,19 +6,18 @@ const_pdr = zeros(1,length(range));
 const_mean_th = zeros(1,length(range));
 for k = range
     i = i+1;
-    load(['sim60tdma\constantROVpath_ROVperiod',int2str(k),'.mat'])
+    load(['sim2relay_tdma\constantROVpath_ROVperiod',int2str(k),'.mat'])
     const_rmse(i) = rmse;
     const_pdr(i) = pdr;
     const_mean_th(i) = mean_th;
 end
 i = 0;
-range = 5:5:60;
 adap_rmse = zeros(1,length(range));
 adap_pdr = zeros(1,length(range));
 adap_mean_th = zeros(1,length(range));
 for k = range
     i = i+1;
-    load(['sim60tdma\adaptiveROVpath_ROVperiod',int2str(k),'.mat'])
+    load(['sim2relay_tdma\adaptiveROVpath_ROVperiod',int2str(k),'.mat'])
     adap_rmse(i) = rmse;
     adap_pdr(i) = pdr;
     adap_mean_th(i) = mean_th;

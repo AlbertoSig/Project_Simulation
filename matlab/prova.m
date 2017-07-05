@@ -2,10 +2,11 @@ clear;
 close all;
 save_flag = 0;
 load('original_path2relay.mat');
-x = importdata('x.txt');
-y = importdata('y.txt');
-z = importdata('z.txt');
-data = importdata('data.txt');
+for period = 5:5:60
+x = importdata(['x',int2str(period),'.txt']);
+y = importdata(['y',int2str(period),'.txt']);
+z = importdata(['z',int2str(period),'.txt']);
+data = importdata(['data',int2str(period),'.txt']);
 %data contains 6 values
 % data(1) = ROV throughput
 % data(2) = ROV Packet Error Rate
@@ -41,12 +42,15 @@ hold on
 plot(x_original,y_original,'--');
 xlabel('x');
 ylabel('y');
+title(['ROV period ',int2str(ROV_period)])
 legend('rov path','original path');
 %axis([900 1100 -100 100]);
 if save_flag == 1
-    savefig(['sim60tdma\',type,'ROVpath_ROVperiod',int2str(ROV_period)])
-    saveas(gcf,['sim60tdma\',type,'ROVpath_ROVperiod',int2str(ROV_period),'.png']);
-    save(['sim60tdma\',type,'ROVpath_ROVperiod',int2str(ROV_period),'.mat']);
+    savefig(['sim2relay_tdma\',type,'ROVpath_ROVperiod',int2str(ROV_period)])
+    saveas(gcf,['sim2relay_tdma\',type,'ROVpath_ROVperiod',int2str(ROV_period),'.png']);
+    save(['sim2relay_tdma\',type,'ROVpath_ROVperiod',int2str(ROV_period),'.mat']);
+end
+
 end
 % figure();
 % plot(d);
