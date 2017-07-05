@@ -1,6 +1,6 @@
 clear;
 close all;
-save_flag = 0;
+save_flag = 1;
 load('original_path2relay.mat');
 for period = 5:5:60
 x = importdata(['x',int2str(period),'.txt']);
@@ -46,9 +46,9 @@ title(['ROV period ',int2str(ROV_period)])
 legend('rov path','original path');
 %axis([900 1100 -100 100]);
 if save_flag == 1
-    savefig(['sim2relay_tdma\',type,'ROVpath_ROVperiod',int2str(ROV_period)])
-    saveas(gcf,['sim2relay_tdma\',type,'ROVpath_ROVperiod',int2str(ROV_period),'.png']);
-    save(['sim2relay_tdma\',type,'ROVpath_ROVperiod',int2str(ROV_period),'.mat']);
+    savefig(['sim2relay_tdma2tx\',type,'ROVpath_ROVperiod',int2str(ROV_period)])
+    saveas(gcf,['sim2relay_tdma2tx\',type,'ROVpath_ROVperiod',int2str(ROV_period),'.png']);
+    save(['sim2relay_tdma2tx\',type,'ROVpath_ROVperiod',int2str(ROV_period),'.mat']);
 end
 
 end
