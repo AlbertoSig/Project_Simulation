@@ -1,24 +1,33 @@
 #!/bin/bash
-rm my_log.txt x.txt y.txt z.txt data.txt
+rm *.txt
 
-ns $1 >> my_log.txt
+echo "removing files *.txt"
 
-grep -Po 'x = ([-0-9.\n]*[,]*)' $2 | grep -o '[-0-9.]*' >> x.txt
-grep -Po 'y = ([-0-9.\n]*[,]*)' $2 | grep -o '[-0-9.]*' >> y.txt
-grep -Po 'z = ([-0-9.\n]*[,]*)' $2 | grep -o '[-0-9.]*' >> z.txt
+for i in $(seq 5 5 60)
+do
+	echo "start of simulation with ROV period $i"
+	ns $1 $i>> my_log.txt
+
+	grep -Po 'x = ([-0-9.\n]*[,]*)' $2 | grep -o '[-0-9.]*' >> x$i.txt
+	grep -Po 'y = ([-0-9.\n]*[,]*)' $2 | grep -o '[-0-9.]*' >> y$i.txt
+	grep -Po 'z = ([-0-9.\n]*[,]*)' $2 | grep -o '[-0-9.]*' >> z$i.txt
 
 
-grep -io 'applicationROV Throughput[ ]* : [0-9.]*' my_log.txt | grep -io [0-9.]* >> data.txt
-grep -io 'applicationROV PER[ ]* : [-0-9.]*' my_log.txt | grep -io [0-9.]*  >> data.txt
-grep -io 'applicationCTR Throughput[ ]* : [0-9.]*' my_log.txt | grep -io [0-9.]* >> data.txt
-grep -io 'applicationCTR PER[ ]* : [-0-9.]*' my_log.txt | grep -io [0-9.]*  >> data.txt
-grep -io 'Sent Packets[ ]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data.txt
-grep -io 'Received[ ]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data.txt
-grep -io 'ROV period[]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data.txt
-grep -i 'adaptive' my_log.txt | grep -io [0-9] >> data.txt
-grep -i 'constant' my_log.txt | grep -io [0-9] >> data.txt
+	grep -io 'applicationROV Throughput[ ]* : [0-9.]*' my_log.txt | grep -io [0-9.]* >> data$i.txt
+	grep -io 'applicationROV PER[ ]* : [-0-9.]*' my_log.txt | grep -io [0-9.]*  >> data$i.txt
+	grep -io 'applicationCTR Throughput[ ]* : [0-9.]*' my_log.txt | grep -io [0-9.]* >> data$i.txt
+	grep -io 'applicationCTR PER[ ]* : [-0-9.]*' my_log.txt | grep -io [0-9.]*  >> data$i.txt
+	grep -io 'Sent Packets[ ]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data$i.txt
+	grep -io 'Received[ ]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data$i.txt
+	grep -io 'ROV period[]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data$i.txt
+	grep -i 'adaptive' my_log.txt | grep -io [0-9] >> data$i.txt
+	grep -i 'constant' my_log.txt | grep -io [0-9] >> data$i.txt
 
-cp ./x.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
-cp ./y.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
-cp ./z.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
-cp ./data.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
+	cp ./x$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
+	cp ./y$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
+	cp ./z$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
+	cp ./data$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
+
+	rm my_log.txt
+	echo "end of simulation with ROV period $i"
+done
