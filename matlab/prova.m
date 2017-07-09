@@ -1,7 +1,8 @@
 clear;
 close all;
 save_flag = 1;
-load('original_path2relay.mat');
+load('original_path.mat');
+dir = 'simTDMAFRAME_3relay_ack_imm';
 for period = 5:5:60
     x = importdata(['x',int2str(period),'.txt']);
     y = importdata(['y',int2str(period),'.txt']);
@@ -12,26 +13,44 @@ for period = 5:5:60
     % data(2) = ROV Packet Error Rate
     % data(3) = CTR throughput
     % data(4) = CTR Packet Error Rate
-    % data(5) = total sent packets
-    % data(6) = total received packets
-    % data(7) = ROV period
-    % data(8) = adaptive or constant CTR period
+    % data(5) = CTR sent packets
+    % data(6) = ROV sent packets
+    % data(7) = CTR received packets
+    % data(8) = ROV received packets
+    % data(9) = ROV period
+    % data(10) = ROV packet delivery delay(pdd)
+    % data(11) = standard deviation of ROV pdd
+    % data(12) = ROV packet delivery delay(pdd)
+    % data(13) = standard deviation of ROV pdd
+    % data(14) = adaptive or constant CTR period
+    % data(15) = ack immediately or piggybacking
     x = x(2:end);
     y = y(2:end);
     ROV_th = data(1);
     ROV_per = data(2);
     CTR_th = data(3);
     CTR_per = data(4);
-    sent_pkts = data(5);
-    rcv_pkts = data(6);
-    ROV_period = data(7);
-    if data(8) == 0
+    CTR_sent_pkts = data(5);
+    ROV_sent_pkts = data(6);
+    CTR_rcv_pkts = data(7);
+    ROV_rcv_pkts = data(8);
+    ROV_period = data(9);
+    ROV_pdd = data(10);
+    ROV_pdd_std = data(11);
+    CTR_pdd = data(12);
+    CTR_pdd_std = data(13);
+    if data(14) == 0
         type = 'constant';
     else
         type = 'adaptive';
     end
+    if data(15) == 0
+        ack = 'ack_pgbk';
+    else
+        ack = 'ack_imm';
+    end
     mean_th = (ROV_th + CTR_th)/2;
-    pdr = rcv_pkts/sent_pkts;
+    pdr = (CTR_rcv_pkts + ROV_rcv_pkts)/(CTR_sent_pkts+ROV_sent_pkts);
 
     x_e = x_original - x;
     y_e = y_original - y;
@@ -47,9 +66,9 @@ for period = 5:5:60
     legend('rov path','original path');
     %axis([900 1100 -100 100]);
     if save_flag == 1
-        savefig(['simProva/',type,'ROVpath_ROVperiod',int2str(ROV_period),'.fig'])
-        saveas(gcf,['simProva/',type,'ROVpath_ROVperiod',int2str(ROV_period),'.png']);
-        save(['simProva/',type,'ROVpath_ROVperiod',int2str(ROV_period),'.mat']);
+        savefig([dir,'/',type,'ROVpath_ROVperiod',int2str(ROV_period),ack,'.fig'])
+        saveas(gcf,[dir,'/',type,'ROVpath_ROVperiod',int2str(ROV_period),ack,'.png']);
+        save([dir,'/',type,'ROVpath_ROVperiod',int2str(ROV_period),'.mat']);
     end
     
 end
