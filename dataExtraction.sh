@@ -17,11 +17,18 @@ do
 	grep -io 'applicationROV PER[ ]* : [-0-9.]*' my_log.txt | grep -io [0-9.]*  >> data$i.txt
 	grep -io 'applicationCTR Throughput[ ]* : [0-9.]*' my_log.txt | grep -io [0-9.]* >> data$i.txt
 	grep -io 'applicationCTR PER[ ]* : [-0-9.]*' my_log.txt | grep -io [0-9.]*  >> data$i.txt
-	grep -io 'Sent Packets[ ]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data$i.txt
-	grep -io 'Received[ ]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data$i.txt
+	grep -io 'Sent Packets CTR --> ROV[ ]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data$i.txt
+	grep -io 'Sent Packets ROV --> CTR[ ]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data$i.txt
+	grep -io 'Received Packets ROV --> CTR[ ]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data$i.txt
+	grep -io 'Received Packets CTR --> ROV[ ]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data$i.txt
 	grep -io 'ROV period[]*: [0-9]*' my_log.txt | grep -io [0-9]* >> data$i.txt
+	grep -i 'ROV packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
+	grep -i 'ROV std packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
+	grep -i 'CTR packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
+	grep -i 'CTR packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
 	grep -i 'adaptive' my_log.txt | grep -io [0-9] >> data$i.txt
 	grep -i 'constant' my_log.txt | grep -io [0-9] >> data$i.txt
+	grep -i 'opt(send_ack_immediately)' my_log.txt | grep -io [0-9] >> data$i.txt
 
 	cp ./x$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
 	cp ./y$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
