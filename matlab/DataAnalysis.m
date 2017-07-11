@@ -6,7 +6,7 @@ const_pdr = zeros(1,length(range));
 const_mean_th = zeros(1,length(range));
 const_CTR_pdd = zeros(1,length(range));
 const_ROV_pdd = zeros(1,length(range));
-dir = 'simAloha_3relay_ack_pgbk';
+dir = 'simTDMAFRAME_2relay_ack_pgbk_pipeline2';
 save_flag = 1;
 for k = range
     i = i+1;
@@ -41,7 +41,7 @@ grid on;
 xlabel('ROV period');
 ylabel('RMSE');
 legend('constant ROV period','adaptive ROV period');
-%axis([0 60 0 10]);
+axis([0 60 0 10]);
 if save_flag == 1
     savefig(['figure\',dir,'_RMSE.fig']);
     saveas(gcf,['figure/',dir,'_RMSE.png']);
@@ -86,7 +86,7 @@ title('CTR packet delivery delay');
 xlabel('ROV period');
 ylabel('CTR packet delivery delay');
 legend('constant ROV period','adaptive ROV period');
-axis([0 60 0 30]);
+axis([0 60 0 25]);
 if save_flag == 1
     savefig(['figure/',dir,'_CTRpdd.fig']);
     saveas(gcf,['figure/',dir,'_CTRpdd.png']);
