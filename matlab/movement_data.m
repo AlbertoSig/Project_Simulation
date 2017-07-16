@@ -1,9 +1,9 @@
 clear;
-close all;
+%close all;
 save_flag = 1;
 load('original_path.mat');
 dir = 'simProva';
-range = 1:60;
+range = 5:5:60;
 for period = range
     x = importdata(['x',int2str(period),'.txt']);
     y = importdata(['y',int2str(period),'.txt']);

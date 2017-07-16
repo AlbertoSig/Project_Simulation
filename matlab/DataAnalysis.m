@@ -1,13 +1,13 @@
 clear;
 i = 0;
-range = 1:60;
+range =5:5:60;
 const_rmse = zeros(1,length(range));
 const_pdr = zeros(1,length(range));
 const_mean_th = zeros(1,length(range));
 const_CTR_pdd = zeros(1,length(range));
 const_ROV_pdd = zeros(1,length(range));
 dir = 'simProva';
-save_flag = 0;
+
 for k = range
     i = i+1;
     load([dir,'/constantROVpath_ROVperiod',int2str(k),'.mat'])
@@ -17,7 +17,6 @@ for k = range
     const_CTR_pdd(i) = CTR_pdd;
     const_ROV_pdd(i) = ROV_pdd;
 end
-range = 1:60;
 i = 0;
 adap_rmse = zeros(1,length(range));
 adap_pdr = zeros(1,length(range));
@@ -33,6 +32,7 @@ for k = range
     adap_CTR_pdd(i) = CTR_pdd;
     adap_ROV_pdd(i) = ROV_pdd;
 end
+save_flag = 0;
 figure();
 plot(range, const_rmse);
 title('RMSE');

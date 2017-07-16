@@ -2,7 +2,7 @@ clear;
 close all;
 save_flag = 1;
 load('original_path.mat');
-dir = 'simProva';
+dir = 'simTDMAFRAME_1Relay';
 range = 20:5:60;
 for time = range
     x = importdata(['x',int2str(time),'.txt']);
@@ -67,9 +67,9 @@ for time = range
     legend('rov path','original path');
     %axis([900 1100 -100 100]);
     if save_flag == 1
-        savefig([dir,'/',type,'ROVpath_Guard time',int2str(guard_time),ack,'.fig'])
-        saveas(gcf,[dir,'/',type,'ROVpath_Guard time',int2str(guard_time),ack,'.png']);
-        save([dir,'/',type,'ROVpath_Guard time',int2str(guard_time),'.mat']);
+        savefig(['guard_time/',dir,'/',type,'ROVpath_Guard_time',int2str(guard_time),ack,'.fig'])
+        saveas(gcf,['guard_time/',dir,'/',type,'ROVpath_Guard_time',int2str(guard_time),ack,'.png']);
+        save(['guard_time/',dir,'/',type,'ROVpath_Guard_time',int2str(guard_time),'.mat']);
     end
     
 end
