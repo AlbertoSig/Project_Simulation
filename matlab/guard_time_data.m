@@ -2,8 +2,8 @@ clear;
 close all;
 save_flag = 1;
 load('original_path.mat');
-dir = 'simTDMAFRAME_1Relay';
-range = 20:5:60;
+dir = 'simTDMA_3Relay';
+range = 20:5:80;
 for time = range
     x = importdata(['x',int2str(time),'.txt']);
     y = importdata(['y',int2str(time),'.txt']);
@@ -51,8 +51,8 @@ for time = range
         ack = 'ack_imm';
     end
     mean_th = (ROV_th + CTR_th)/2;
-    pdr = (CTR_rcv_pkts + ROV_rcv_pkts)/(CTR_sent_pkts+ROV_sent_pkts);
-
+    ROV_pdr = CTR_rcv_pkts/ROV_sent_pkts;
+    CTR_pdr = ROV_rcv_pkts/CTR_sent_pkts;
     x_e = x_original - x;
     y_e = y_original - y;
     d = sqrt(x_e.^2 + y_e.^2);
