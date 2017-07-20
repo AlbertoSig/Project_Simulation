@@ -2,7 +2,7 @@ clear;
 close all;
 save_flag = 1;
 load('original_path.mat');
-dir = 'simTDMA_3Relay';
+dir = 'simTDMAFRAME_3Relay_pipeline2';
 range = 20:5:80;
 for time = range
     x = importdata(['x',int2str(time),'.txt']);

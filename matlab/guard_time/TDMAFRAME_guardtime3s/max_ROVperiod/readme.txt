@@ -1,0 +1,1 @@
+TDMA guard time 3s

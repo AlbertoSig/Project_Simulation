@@ -1,6 +1,6 @@
 clear;
 range = 20:5:80;
-dir = 'simTDMAFRAME_1Relay';
+dir = 'simTDMAFRAME_3Relay_pipeline2';
 i = 0;
 adap_rmse = zeros(1,length(range));
 adap_ROV_pdr = zeros(1,length(range));
@@ -8,7 +8,9 @@ adap_CTR_pdr = zeros(1,length(range));
 adap_ROV_th = zeros(1,length(range));
 adap_CTR_th = zeros(1,length(range));
 adap_CTR_pdd = zeros(1,length(range));
+adap_CTR_pdd_CI = zeros(1,length(range)); %confidence interval at 95%
 adap_ROV_pdd = zeros(1,length(range));
+adap_ROV_pdd_CI = zeros(1,length(range));
 for k = range
     i = i+1;
     load(['guard_time/',dir,'/adaptiveROVpath_Guard_time',int2str(k),'.mat'])
@@ -18,9 +20,11 @@ for k = range
     adap_ROV_th(i) = ROV_th;
     adap_CTR_th(i) = CTR_th;
     adap_CTR_pdd(i) = CTR_pdd;
+    adap_CTR_pdd_CI(i) = CTR_pdd_std*1.96/sqrt(ROV_rcv_pkts);
     adap_ROV_pdd(i) = ROV_pdd;
+    adap_ROV_pdd_CI(i) = ROV_pdd_std*1.96/sqrt(CTR_rcv_pkts);
 end
-save_flag = 0;
+save_flag = 1;
 
 %RMSE
 index = find(adap_rmse == 0);
@@ -110,12 +114,13 @@ end
 figure();
 hold on;
 plot(range, adap_CTR_pdd,'r');
+%errorbar(range,adap_CTR_pdd,adap_CTR_pdd_CI,'r');
 grid on;
 title('CTR packet delivery delay');
 xlabel('time between 2 waipoint transmission [s]');
 ylabel('CTR packet delivery delay [s]');
 legend('adaptive ROV period');
-axis([20 80 0 2000]);
+axis([20 80 0 50]);
 if save_flag == 1
     savefig(['guard_time/figure/',dir,'_CTRpdd.fig']);
     saveas(gcf,['guard_time/figure/',dir,'_CTRpdd.png']);
@@ -125,8 +130,9 @@ end
 %ROV packet delivery delay
 figure();
 hold on;
+%errorbar(range, adap_ROV_pdd,adap_ROV_pdd_CI,'r');
 plot(range, adap_ROV_pdd,'r');
-axis([20 80 0 4800]);
+axis([20 80 0 50]);
 grid on;
 title('ROV packet delivery delay');
 xlabel('time between 2 waipoint transmission [s]');
