@@ -1,6 +1,6 @@
 clear;
 %close all;
-save_flag = 1;
+save_flag = 0;
 load('original_path.mat');
 dir = 'simProva';
 range = 5:5:60;

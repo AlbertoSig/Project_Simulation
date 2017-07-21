@@ -1,6 +1,6 @@
 clear;
 range = 20:5:80;
-dir = 'simTDMAFRAME_3Relay_pipeline2';
+dir = 'simProva';
 i = 0;
 adap_rmse = zeros(1,length(range));
 adap_ROV_pdr = zeros(1,length(range));
@@ -24,7 +24,7 @@ for k = range
     adap_ROV_pdd(i) = ROV_pdd;
     adap_ROV_pdd_CI(i) = ROV_pdd_std*1.96/sqrt(CTR_rcv_pkts);
 end
-save_flag = 1;
+save_flag = 0;
 
 %RMSE
 index = find(adap_rmse == 0);
@@ -70,7 +70,7 @@ title('CTR throughput');
 xlabel('time between 2 waipoint transmission [s]');
 ylabel('CTR throughput [bit/s]');
 legend('adaptive ROV period');
-axis([20 80 0 500]);
+axis([20 80 0 600]);
 if save_flag == 1
     savefig(['guard_time/figure/',dir,'_CTR_th.fig']);
     saveas(gcf,['guard_time/figure/',dir,'_CTR_th.png']);
@@ -132,7 +132,7 @@ figure();
 hold on;
 %errorbar(range, adap_ROV_pdd,adap_ROV_pdd_CI,'r');
 plot(range, adap_ROV_pdd,'r');
-axis([20 80 0 50]);
+axis([20 80 0 1230]);
 grid on;
 title('ROV packet delivery delay');
 xlabel('time between 2 waipoint transmission [s]');
