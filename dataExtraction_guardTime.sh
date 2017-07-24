@@ -3,7 +3,7 @@ rm *.txt
 
 echo "removing files *.txt"
 
-for i in $(seq 20 5 60)
+for i in $(seq 20 5 80)
 do
 	echo "start of simulation with ROV period $i"
 	ns $1 $i>> my_log.txt
@@ -25,15 +25,16 @@ do
 	grep -i 'ROV packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
 	grep -i 'ROV std packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
 	grep -i 'CTR packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
-	grep -i 'CTR packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
+	grep -i 'CTR std packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
 	grep -i 'adaptive' my_log.txt | grep -io [0-9] >> data$i.txt
 	grep -i 'constant' my_log.txt | grep -io [0-9] >> data$i.txt
 	grep -i 'opt(send_ack_immediately)' my_log.txt | grep -io [0-9] >> data$i.txt
+	grep -i 'CTR round trip time[ ]*: [0-9.]*' my_log.txt | grep -io [0-9.]* >> data$i.txt
 
-	cp ./x$i.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
-	cp ./y$i.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
-	cp ./z$i.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
-	cp ./data$i.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
+	cp ./x$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
+	cp ./y$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
+	cp ./z$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
+	cp ./data$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
 
 	rm my_log.txt
 	echo "end of simulation with ROV period $i"

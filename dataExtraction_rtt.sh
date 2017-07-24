@@ -33,10 +33,10 @@ do
 	grep -i 'number of nodes[ ]*: [0-9.]*' my_log.txt | grep -io [0-9.]* >> data$i.txt
 	grep -i 'CTR round trip time[ ]*: [0-9.]*' my_log.txt | grep -io [0-9.]* >> data$i.txt
 
-	cp ./x$i.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
-	cp ./y$i.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
-	cp ./z$i.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
-	cp ./data$i.txt  /home/alberto_signori/Desktop/Project_Simulation/matlab
+	cp ./x$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
+	cp ./y$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
+	cp ./z$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
+	cp ./data$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
 
 	rm my_log.txt
 	echo "end of simulation with ROV period $i"

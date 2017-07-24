@@ -3,7 +3,7 @@ rm *.txt
 
 echo "removing files *.txt"
 
-for i in $(seq 5 5 60)
+for i in $(seq 1 1 60)
 do
 	echo "start of simulation with ROV period $i"
 	ns $1 $i>> my_log.txt
@@ -29,6 +29,10 @@ do
 	grep -i 'adaptive' my_log.txt | grep -io [0-9] >> data$i.txt
 	grep -i 'constant' my_log.txt | grep -io [0-9] >> data$i.txt
 	grep -i 'opt(send_ack_immediately)' my_log.txt | grep -io [0-9] >> data$i.txt
+	grep -i 'slot duration[ ]*: [0-9.]*' my_log.txt | grep -io [0-9.]* >> data$i.txt
+	grep -i 'number of nodes[ ]*: [0-9.]*' my_log.txt | grep -io [0-9.]* >> data$i.txt
+	grep -i 'CTR round trip time[ ]*: [0-9.]*' my_log.txt | grep -io [0-9.]* >> data$i.txt
+
 
 	cp ./x$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
 	cp ./y$i.txt  /media/sf_VirtualMachine/Project_Simulation/matlab
