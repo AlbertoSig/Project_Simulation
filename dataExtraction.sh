@@ -25,7 +25,7 @@ do
 	grep -i 'ROV packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
 	grep -i 'ROV std packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
 	grep -i 'CTR packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
-	grep -i 'CTR packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
+	grep -i 'CTR std packet delivery delay' my_log.txt | grep -io [0-9.]* >> data$i.txt
 	grep -i 'adaptive' my_log.txt | grep -io [0-9] >> data$i.txt
 	grep -i 'constant' my_log.txt | grep -io [0-9] >> data$i.txt
 	grep -i 'opt(send_ack_immediately)' my_log.txt | grep -io [0-9] >> data$i.txt
