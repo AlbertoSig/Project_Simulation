@@ -1,6 +1,6 @@
 clear;
 range = 1:1:60;
-dir = 'simTDMAFRAME_pipeline2_2Relay';
+dir = 'simProva';
 i = 0;
 adap_rmse = zeros(1,length(range));
 adap_ROV_pdr = zeros(1,length(range));
@@ -142,7 +142,7 @@ end
 figure();
 %errorbar(range, adap_ROV_pdd,adap_ROV_pdd_CI,'r');
 plot(range, adap_ROV_pdd,'-r*','MarkerSize',5);
-axis([1 60 0 1900]);
+axis([1 60 0 50]);
 grid on;
 hold on;
 plot(ones(1,2)*max_ROV_period_theo,[10^-5 , 10^5],'k--');
