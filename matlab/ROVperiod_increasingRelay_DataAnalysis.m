@@ -142,7 +142,7 @@ end
 figure();
 %errorbar(range, adap_ROV_pdd,adap_ROV_pdd_CI,'r');
 plot(range, adap_ROV_pdd,'-r*','MarkerSize',5);
-axis([1 60 0 50]);
+axis([1 60 0 2200]);
 grid on;
 hold on;
 plot(ones(1,2)*max_ROV_period_theo,[10^-5 , 10^5],'k--');
