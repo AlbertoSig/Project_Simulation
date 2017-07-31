@@ -1,6 +1,6 @@
 clear;
 range = 20:5:80;
-dir = 'simTDMAFRAME_pipeline2_3Relay';
+dir = 'simProva';
 i = 0;
 adap_rmse = zeros(1,length(range));
 adap_ROV_pdr = zeros(1,length(range));
@@ -24,7 +24,7 @@ for k = range
     adap_ROV_pdd(i) = ROV_pdd;
     adap_ROV_pdd_CI(i) = ROV_pdd_std*1.96/sqrt(CTR_rcv_pkts);
 end
-save_flag = 1;
+save_flag = 0;
 
 %RMSE
 index = find(adap_rmse == 0);
