@@ -1,4 +1,4 @@
-clear;
+ clear;
 range = 1:1:60;
 dir = '';
 load(['ROV_period_increasingRelay',dir,'/figure/simTDMAFRAME_1Relay.mat']);
@@ -156,7 +156,7 @@ legend('rmse 1 relay','rmse 2 relay','rmse 3 realay');
 if save_flag == 1
     savefig(['ROV_period_increasingRelay/',dir,'/comparison/rmse.fig']);
     saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/rmse.png']);
-    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/rmse.eps']);
+    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/rmse'],'epsc');
 end
 
 
@@ -174,7 +174,7 @@ legend('ROV packet delivery ratio 1 realay',...
 if save_flag == 1
     savefig(['ROV_period_increasingRelay/',dir,'/comparison/ROV_pdr.fig']);
     saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/ROV_pdr.png']);
-    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/ROV_pdr.eps']);
+    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/ROV_pdr'],'epsc');
 end
 
 %CTR packet delivery ratio
@@ -192,7 +192,7 @@ legend('CTR packet delivery ratio 1 realay',...
 if save_flag == 1
     savefig(['ROV_period_increasingRelay/',dir,'/comparison/CTR_pdr.fig']);
     saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/CTR_pdr.png']);
-    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/CTR_pdr.eps']);
+    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/CTR_pdr'],'epsc');
 end
 
 %ROV packet delivry delay
@@ -210,7 +210,7 @@ legend('ROV packet delivery delay 1 realay',...
 if save_flag == 1
     savefig(['ROV_period_increasingRelay/',dir,'/comparison/ROV_pdd.fig']);
     saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/ROV_pdd.png']);
-    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/ROV_pdd.eps']);
+    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/ROV_pdd'],'epsc');
 end
 
 %CTR packet delivery delay
@@ -228,7 +228,7 @@ axis([1 60 1 10^4]);
 if save_flag == 1
     savefig(['ROV_period_increasingRelay/',dir,'/comparison/CTR_pdd.fig']);
     saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/CTR_pdd.png']);
-    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/CTR_pdd.eps']);
+    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/CTR_pdd'],'epsc');
 end
 
 
@@ -247,7 +247,7 @@ axis([1 60 0 750]);
 if save_flag == 1
     savefig(['ROV_period_increasingRelay/',dir,'/comparison/CTR_thr.fig']);
     saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/CTR_thr.png']);
-    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/CTR_thr.eps']);
+    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/CTR_thr'],'epsc');
 end
 
 %ROV throughput
@@ -266,5 +266,5 @@ axis([1 60 0 260]);
 if save_flag == 1
     savefig(['ROV_period_increasingRelay/',dir,'/comparison/ROV_thr.fig']);
     saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/ROV_thr.png']);
-    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/ROV_thr.eps']);
+    saveas(gcf,['ROV_period_increasingRelay/',dir,'/comparison/ROV_thr'],'epsc');
 end

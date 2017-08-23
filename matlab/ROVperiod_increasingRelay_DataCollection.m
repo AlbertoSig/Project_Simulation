@@ -2,7 +2,7 @@ clear;
 close all;
 save_flag = 1;
 load('original_path.mat');
-dir = 'simProva';
+dir = 'simTDMAFRAME_pipeline2_3Relay';
 range = 1:1:60;
 for period = range
     x = importdata(['x',int2str(period),'.txt']);

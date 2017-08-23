@@ -136,7 +136,7 @@ legend('rmse 1 relay','rmse 2 relay','rmse 3 realay');
 if save_flag == 1
     savefig(['guard_time_increasingRelay/',dir,'/comparison/rmse.fig']);
     saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/rmse.png']);
-    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/rmse.eps']);
+    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/rmse'],'epsc');
 end
 
 %ROV packet delivery ratio
@@ -152,7 +152,7 @@ legend('ROV packet delivery ratio 1 realay',...
 if save_flag == 1
     savefig(['guard_time_increasingRelay/',dir,'/comparison/ROV_pdr.fig']);
     saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/ROV_pdr.png']);
-    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/ROV_pdr.eps']);
+    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/ROV_pdr'],'epsc');
 end
 
 %CTR packet delivery ratio
@@ -170,7 +170,7 @@ legend('CTR packet delivery ratio 1 realay',...
 if save_flag == 1
     savefig(['guard_time_increasingRelay/',dir,'/comparison/CTR_pdr.fig']);
     saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/CTR_pdr.png']);
-    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/CTR_pdr.eps']);
+    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/CTR_pdr'],'epsc');
 end
 
 
@@ -189,7 +189,7 @@ legend('ROV packet delivery delay 1 realay',...
 if save_flag == 1
     savefig(['guard_time_increasingRelay/',dir,'/comparison/ROV_pdd.fig']);
     saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/ROV_pdd.png']);
-    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/ROV_pdd.eps']);
+    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/ROV_pdd'],'epsc');
 end
 
 %CTR packet delivery delay
@@ -207,7 +207,7 @@ axis([20 80 1 10^4]);
 if save_flag == 1
     savefig(['guard_time_increasingRelay/',dir,'/comparison/CTR_pdd.fig']);
     saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/CTR_pdd.png']);
-    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/CTR_pdd.eps']);
+    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/CTR_pdd'],'epsc');
 end
 
 %CTR throughput
@@ -226,7 +226,7 @@ axis([20 80 0 600]);
 if save_flag == 1
     savefig(['guard_time_increasingRelay/',dir,'/comparison/CTR_thr.fig']);
     saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/CTR_thr.png']);
-    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/CTR_thr.eps']);
+    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/CTR_thr'],'epsc');
 end
 
 %ROV throughput
@@ -245,5 +245,5 @@ axis([20 80 0 400]);
 if save_flag == 1
     savefig(['guard_time_increasingRelay/',dir,'/comparison/ROV_thr.fig']);
     saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/ROV_thr.png']);
-    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/ROV_thr.eps']);
+    saveas(gcf,['guard_time_increasingRelay/',dir,'/comparison/ROV_thr'],'epsc');
 end

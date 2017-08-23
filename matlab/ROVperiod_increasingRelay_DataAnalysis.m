@@ -1,6 +1,6 @@
 clear;
 range = 1:1:60;
-dir = 'simProva';
+dir = 'simTDMAFRAME_pipeline2_3Relay';
 i = 0;
 adap_rmse = zeros(1,length(range));
 adap_ROV_pdr = zeros(1,length(range));
@@ -25,7 +25,7 @@ for k = range
     adap_ROV_pdd_CI(i) = ROV_pdd_std*1.96/sqrt(CTR_rcv_pkts);
 end
 max_ROV_period_theo = slot_duration*number_nodes;
-save_flag = 0;
+save_flag = 1;
 
 %RMSE
 index = find(adap_rmse == 0);
@@ -142,7 +142,7 @@ end
 figure();
 %errorbar(range, adap_ROV_pdd,adap_ROV_pdd_CI,'r');
 plot(range, adap_ROV_pdd,'-r*','MarkerSize',5);
-axis([1 60 0 2200]);
+axis([1 60 0 1500]);
 grid on;
 hold on;
 plot(ones(1,2)*max_ROV_period_theo,[10^-5 , 10^5],'k--');
