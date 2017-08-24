@@ -13,7 +13,7 @@ adap_ROV_pdd = zeros(1,length(range));
 adap_ROV_pdd_CI = zeros(1,length(range));
 for k = range
     i = i+1;
-    load(['ROV_period_increasingRelay/',dir,'/adaptiveROVpath_ROVperiod',int2str(k),'.mat'])
+    load(['ROV_period_increasingRelay/MAC_comparison_yesROVqueue/',dir,'/adaptiveROVpath_ROVperiod',int2str(k),'.mat'])
     adap_rmse(i) = rmse;
     adap_ROV_pdr(i) = ROV_pdr;
     adap_CTR_pdr(i) = CTR_pdr;
@@ -25,7 +25,7 @@ for k = range
     adap_ROV_pdd_CI(i) = ROV_pdd_std*1.96/sqrt(CTR_rcv_pkts);
 end
 max_ROV_period_theo = slot_duration*number_nodes;
-save_flag = 1;
+save_flag = 0;
 
 %RMSE
 index = find(adap_rmse == 0);
@@ -123,7 +123,7 @@ end
 %CTR packet delivery delay
 figure();
 plot(range, adap_CTR_pdd,'-r*','MarkerSize',5);
-%errorbar(range,adap_CTR_pdd,adap_CTR_pdd_CI,'r');
+errorbar(range,adap_CTR_pdd,adap_CTR_pdd_CI,'r');
 grid on;
 hold on;
 plot(ones(1,2)*max_ROV_period_theo,[10^-5 , 10^5],'k--');
@@ -140,7 +140,7 @@ end
 
 %ROV packet delivery delay
 figure();
-%errorbar(range, adap_ROV_pdd,adap_ROV_pdd_CI,'r');
+errorbar(range, adap_ROV_pdd,adap_ROV_pdd_CI,'r');
 plot(range, adap_ROV_pdd,'-r*','MarkerSize',5);
 axis([1 60 0 1500]);
 grid on;
