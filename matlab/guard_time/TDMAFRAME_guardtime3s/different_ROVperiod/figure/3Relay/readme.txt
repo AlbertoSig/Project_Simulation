@@ -1,1 +1,0 @@
-ROV period: 45s

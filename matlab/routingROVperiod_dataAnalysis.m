@@ -49,7 +49,7 @@ axis([1 60 10^-3 10000]);
 if save_flag == 1
     savefig(['Routing/figure/',dir,'_RMSE.fig']);
     saveas(gcf,['Routing/figure/',dir,'_RMSE.png']);
-    saveas(gcf,['Routing/figure/',dir,'_RMSE.eps']);
+    saveas(gcf,['Routing/figure/',dir,'_RMSE.eps'],'epsc');
 end
 
 %ROV Throughput
@@ -66,24 +66,26 @@ axis([1 60 0 300]);
 if save_flag == 1
     savefig(['Routing/figure/',dir,'_ROV_th.fig']);
     saveas(gcf,['Routing/figure/',dir,'_ROV_th.png']);
-    saveas(gcf,['Routing/figure/',dir,'_ROV_th.eps']);
+    saveas(gcf,['Routing/figure/',dir,'_ROV_th.eps'],'epsc');
 end
 
 %CTR Throughput
+CTR_thr_theo = 8000./range;
 figure();
 plot(range, adap_CTR_th,'-r*','MarkerSize',5);
 grid on;
 hold on;
 plot(ones(1,2)*max_ROV_period_theo,[10^-5 , 10^5],'k--');
+plot(range,CTR_thr_theo,'--b');
 title('CTR throughput');
 xlabel('ROV period [s]');
 ylabel('CTR throughput [bit/s]');
-legend('CTR throughput','theoretical min ROV period');
+legend('CTR throughput','theoretical min ROV period','theoretical throughput');
 axis([1 60 0 750]);
 if save_flag == 1
     savefig(['Routing/figure/',dir,'_CTR_th.fig']);
     saveas(gcf,['Routing/figure/',dir,'_CTR_th.png']);
-    saveas(gcf,['Routing/figure/',dir,'_CTR_th.eps']);
+    saveas(gcf,['Routing/figure/',dir,'_CTR_th.eps'],'epsc');
 end
 
 
@@ -101,7 +103,7 @@ legend('ROV packet delivery ratio','theoretical min ROV period','Location','east
 if save_flag == 1
     savefig(['Routing/figure/',dir,'ROV_pdr.fig']);
     saveas(gcf,['Routing/figure/',dir,'ROV_pdr.png']);
-    saveas(gcf,['Routing/figure/',dir,'ROV_pdr.eps']);
+    saveas(gcf,['Routing/figure/',dir,'ROV_pdr.eps'],'epsc');
 end
 
 %CTR packet delivery ratio
@@ -118,7 +120,7 @@ legend('CTR packet delivery ratio','theoretical min ROV period','Location','east
 if save_flag == 1
     savefig(['Routing/figure/',dir,'CTR_pdr.fig']);
     saveas(gcf,['Routing/figure/',dir,'CTR_pdr.png']);
-    saveas(gcf,['Routing/figure/',dir,'CTR_pdr.eps']);
+    saveas(gcf,['Routing/figure/',dir,'CTR_pdr.eps'],'epsc');
 end
 
 %CTR packet delivery delay
@@ -132,18 +134,18 @@ title('CTR packet delivery delay');
 xlabel('ROV period [s]');
 ylabel('CTR packet delivery delay [s]');
 legend('CTR packet delivery delay','theoretical min ROV period');
-axis([1 60 0 1000]);
+axis([1 60 0 1500]);
 if save_flag == 1
     savefig(['Routing/figure/',dir,'_CTRpdd.fig']);
     saveas(gcf,['Routing/figure/',dir,'_CTRpdd.png']);
-    saveas(gcf,['Routing/figure/',dir,'_CTRpdd.eps']);
+    saveas(gcf,['Routing/figure/',dir,'_CTRpdd.eps'],'epsc');
 end
 
 %ROV packet delivery delay
 figure();
 %errorbar(range, adap_ROV_pdd,adap_ROV_pdd_CI,'r');
 plot(range, adap_ROV_pdd,'-r*','MarkerSize',5);
-axis([1 60 0 2000]);
+axis([1 60 0 4500]);
 grid on;
 hold on;
 plot(ones(1,2)*max_ROV_period_theo,[10^-5 , 10^5],'k--');
@@ -154,7 +156,7 @@ legend('ROV packet delivery delay','theoretical min ROV period');
 if save_flag == 1
     savefig(['Routing/figure/',dir,'_ROVpdd.fig']);
     saveas(gcf,['Routing/figure/',dir,'_ROVpdd.png']);
-    saveas(gcf,['Routing/figure/',dir,'_ROVpdd.eps']);
+    saveas(gcf,['Routing/figure/',dir,'_ROVpdd.eps'],'epsc');
 end
 
 
