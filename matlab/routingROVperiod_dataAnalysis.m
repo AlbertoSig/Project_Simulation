@@ -134,7 +134,7 @@ title('CTR packet delivery delay');
 xlabel('ROV period [s]');
 ylabel('CTR packet delivery delay [s]');
 legend('CTR packet delivery delay','theoretical min ROV period');
-axis([1 60 0 1500]);
+axis([1 60 0 1400]);
 if save_flag == 1
     savefig(['Routing/figure/',dir,'_CTRpdd.fig']);
     saveas(gcf,['Routing/figure/',dir,'_CTRpdd.png']);
@@ -145,7 +145,7 @@ end
 figure();
 %errorbar(range, adap_ROV_pdd,adap_ROV_pdd_CI,'r');
 plot(range, adap_ROV_pdd,'-r*','MarkerSize',5);
-axis([1 60 0 4500]);
+axis([1 60 0 4000]);
 grid on;
 hold on;
 plot(ones(1,2)*max_ROV_period_theo,[10^-5 , 10^5],'k--');
@@ -164,5 +164,5 @@ end
 if save_flag == 1
     save(['Routing/figure/',dir,'.mat'],'adap_rmse','adap_ROV_pdr',...
     'adap_CTR_pdr','adap_ROV_th','adap_CTR_th','adap_CTR_pdd','adap_ROV_pdd',...
-    'slot_duration');
+    'slot_duration','adap_CTR_pdd_CI','adap_ROV_pdd_CI');
 end
