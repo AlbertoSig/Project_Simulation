@@ -1,6 +1,6 @@
 clear;
 %close all;
-save_flag = 1;
+save_flag = 0;
 n_relay = 3;
 load(['original_pathRouting',int2str(n_relay),'.mat']);
 dir = ['simFlooding',int2str(n_relay),'Relay'];
