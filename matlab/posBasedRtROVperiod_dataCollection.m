@@ -1,7 +1,7 @@
 clear;
 %close all;
 save_flag = 0;
-n_relay = 3;
+n_relay = 1;
 load(['original_pathRouting',int2str(n_relay),'.mat']);
 dir = ['simPosBasedRt',int2str(n_relay),'Relay'];
 range = 1:1:60;
@@ -60,10 +60,10 @@ for period = range
     ROV_pdr = CTR_rcv_pkts/ROV_sent_pkts;
     CTR_pdr = ROV_rcv_pkts/CTR_sent_pkts;    
 
-    x_e = x_original - x;
-    y_e = y_original - y;
-    d = sqrt(x_e.^2 + y_e.^2);
-    rmse = sqrt(sum(d.^2)/length(d));
+%    x_e = x_original - x;
+%    y_e = y_original - y;
+%    d = sqrt(x_e.^2 + y_e.^2);
+%    rmse = sqrt(sum(d.^2)/length(d));
     figure()
     plot(x,y);
     hold on
