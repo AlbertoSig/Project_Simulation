@@ -1,6 +1,6 @@
 clear;
 range = 1:1:60;
-n_relay = 3;
+n_relay = 1;
 dir = ['simPosBasedRt',int2str(n_relay),'Relay'];
 i = 0;
 adap_rmse = zeros(1,length(range));
