@@ -3,7 +3,7 @@ clear;
 save_flag = 1;
 n_relay = 1;
 
-load(['posBasedRt_path.mat']);%load(['original_pathRouting',int2str(n_relay),'.mat']);
+load('posBasedRt_path.mat');%load(['original_pathRouting',int2str(n_relay),'.mat']);
 dir = 'simFlooding_newPath';
 
 range = 1:1:60;

@@ -2,7 +2,7 @@ clear;
 range = 1:1:60;
 n_relay = 1;
 
-dir = 'simNewPath_PosBasedRt';%['simPosBasedRt',int2str(n_relay),'Relay'];
+dir = 'simPosBasedRt_NewPath';%['simPosBasedRt',int2str(n_relay),'Relay'];
 
 i = 0;
 adap_rmse = zeros(1,length(range));
@@ -147,11 +147,8 @@ end
 figure();
 %errorbar(range, adap_ROV_pdd,adap_ROV_pdd_CI,'r');
 plot(range, adap_ROV_pdd,'-r*','MarkerSize',5);
-<<<<<<< HEAD
-axis([1 60 0 800]);
-=======
 axis([1 60 0 500]);
->>>>>>> 0b7d3a452a6bf1231fda0ceace1892f3abc8bffa
+
 grid on;
 hold on;
 plot(ones(1,2)*max_ROV_period_theo,[10^-5 , 10^5],'k--');
