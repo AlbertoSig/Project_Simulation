@@ -1,11 +1,9 @@
 clear;
 range = 1:1:60;
 n_relay = 1;
-<<<<<<< HEAD
-dir = 'simPosBasedRtNewPath';%['simPosBasedRt',int2str(n_relay),'Relay'];
-=======
-dir = 'simNewPath_PosBasedRt';
->>>>>>> 0b7d3a452a6bf1231fda0ceace1892f3abc8bffa
+
+dir = 'simNewPath_PosBasedRt';%['simPosBasedRt',int2str(n_relay),'Relay'];
+
 i = 0;
 adap_rmse = zeros(1,length(range));
 adap_ROV_pdr = zeros(1,length(range));

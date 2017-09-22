@@ -2,13 +2,10 @@ clear;
 %close all;
 save_flag = 1;
 n_relay = 1;
-<<<<<<< HEAD
+
 load(['posBasedRt_path.mat']);%load(['original_pathRouting',int2str(n_relay),'.mat']);
-dir = 'simFloodingNewPath';%= ['simFlooding',int2str(n_relay),'Relay'];
-=======
-load(['posBasedRt_path.mat']);
 dir = 'simFlooding_newPath';
->>>>>>> 0b7d3a452a6bf1231fda0ceace1892f3abc8bffa
+
 range = 1:1:60;
 for period = range
     x = importdata(['x',int2str(period),'.txt']);
