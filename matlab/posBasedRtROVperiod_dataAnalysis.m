@@ -1,7 +1,7 @@
 clear;
 range = 1:1:60;
 n_relay = 1;
-dir = ['simPosBasedRt',int2str(n_relay),'Relay'];
+dir = 'simPosBasedRtNewPath';%['simPosBasedRt',int2str(n_relay),'Relay'];
 i = 0;
 adap_rmse = zeros(1,length(range));
 adap_ROV_pdr = zeros(1,length(range));
@@ -26,7 +26,7 @@ for k = range
     adap_ROV_pdd_CI(i) = ROV_pdd_std*1.96/sqrt(CTR_rcv_pkts);
 end
 max_ROV_period_theo = slot_duration*number_nodes;
-save_flag = 1;
+save_flag = 0;
 
 %RMSE
 index = find(adap_rmse == 0);
@@ -134,7 +134,7 @@ title('CTR packet delivery delay');
 xlabel('ROV period [s]');
 ylabel('CTR packet delivery delay [s]');
 legend('CTR packet delivery delay','theoretical min ROV period');
-axis([1 60 0 50]);
+axis([1 60 0 100]);
 if save_flag == 1
     savefig(['PosBasedRouting/figure/',dir,'_CTRpdd.fig']);
     saveas(gcf,['PosBasedRouting/figure/',dir,'_CTRpdd.png']);
@@ -145,7 +145,7 @@ end
 figure();
 %errorbar(range, adap_ROV_pdd,adap_ROV_pdd_CI,'r');
 plot(range, adap_ROV_pdd,'-r*','MarkerSize',5);
-axis([1 60 0 2800]);
+axis([1 60 0 800]);
 grid on;
 hold on;
 plot(ones(1,2)*max_ROV_period_theo,[10^-5 , 10^5],'k--');
