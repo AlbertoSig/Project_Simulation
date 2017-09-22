@@ -3,7 +3,11 @@ clear;
 save_flag = 1;
 n_relay = 1;
 load(['posBasedRt_path.mat']);
+<<<<<<< HEAD
 dir = ['simPosBasedRtNewPath'];
+=======
+dir = 'simNewPath_PosBasedRt';
+>>>>>>> 0b7d3a452a6bf1231fda0ceace1892f3abc8bffa
 range = 1:1:60;
 for period = range
     x = importdata(['x',int2str(period),'.txt']);
