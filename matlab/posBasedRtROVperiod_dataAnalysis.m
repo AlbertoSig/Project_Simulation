@@ -28,7 +28,7 @@ for k = range
     adap_ROV_pdd_CI(i) = ROV_pdd_std*1.96/sqrt(CTR_rcv_pkts);
 end
 max_ROV_period_theo = slot_duration*number_nodes;
-save_flag = 0;
+save_flag = 1;
 
 %RMSE
 index = find(adap_rmse == 0);
@@ -136,7 +136,7 @@ title('CTR packet delivery delay');
 xlabel('ROV period [s]');
 ylabel('CTR packet delivery delay [s]');
 legend('CTR packet delivery delay','theoretical min ROV period');
-axis([1 60 0 100]);
+axis([1 60 0 50]);
 if save_flag == 1
     savefig(['PosBasedRouting/figure/',dir,'_CTRpdd.fig']);
     saveas(gcf,['PosBasedRouting/figure/',dir,'_CTRpdd.png']);

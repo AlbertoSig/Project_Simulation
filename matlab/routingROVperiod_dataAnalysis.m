@@ -134,7 +134,7 @@ title('CTR packet delivery delay');
 xlabel('ROV period [s]');
 ylabel('CTR packet delivery delay [s]');
 legend('CTR packet delivery delay','theoretical min ROV period');
-axis([1 60 0 3000]);
+axis([1 60 0 6500]);
 if save_flag == 1
     savefig(['Routing/figure/',dir,'_CTRpdd.fig']);
     saveas(gcf,['Routing/figure/',dir,'_CTRpdd.png']);

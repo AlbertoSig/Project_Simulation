@@ -2,8 +2,8 @@ clear;
 range = 1:1:60;
 save_flag = 1;
 dir = '';
-load('PosBasedRouting/TDMAframe/figure/simNewPath_PosBasedRt.mat');
-max_ROV_period_theo = slot_duration*3;
+load('PosBasedRouting/TDMAframe/figure/simPosBasedRt_NewPath.mat');
+%max_ROV_period_theo = slot_duration*3;
 %rmse
 figure(1);
 semilogy(range, adap_rmse,'-r*','MarkerSize',5);
@@ -76,8 +76,8 @@ ylabel('ROV throughput [bit/s]');
 axis([1 60 0 450]);
 
 
-load('PosBasedRouting/TDMApipeline/figure/simNewPath_PosBasedRt.mat');
-max_ROV_period_theo = slot_duration*3;
+load('PosBasedRouting/TDMApipeline/figure/simPosBasedRt_NewPath.mat');
+%max_ROV_period_theo = slot_duration*3;
 %rmse
 figure(1);
 semilogy(range, adap_rmse,'-b.','MarkerSize',12);
@@ -275,7 +275,7 @@ hold on;
 title('ROV throughput');
 xlabel('ROV period [s]');
 ylabel('ROV throughput [bit/s]');
-axis([1 60 0 100]);
+axis([1 60 0 250]);
 legend('Position Based Routing(TDMA FRAME)','Position Based Routing(TDMA PIPELINE)',...
         'Flooding(TDMA FRAME)');
     
