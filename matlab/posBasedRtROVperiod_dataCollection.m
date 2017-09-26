@@ -2,10 +2,10 @@ clear;
 %close all;
 save_flag = 1;
 n_relay = 0;
-load(['posBasedRt_path.mat']);%load('prova_path.mat');%
+load('prova_path.mat');%load(['posBasedRt_path.mat']);%
 
 dir = 'simPosBasedRt_NewPath';
-range = 1:1:60;
+range = 1:1:6c0;
 for period = range
     x = importdata(['x',int2str(period),'.txt']);
     y = importdata(['y',int2str(period),'.txt']);
