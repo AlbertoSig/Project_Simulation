@@ -5,7 +5,7 @@ n_relay = 0;
 load('prova_path.mat');%load(['posBasedRt_path.mat']);%
 
 dir = 'simPosBasedRt_NewPath';
-range = 1:1:6c0;
+range = 1:1:60;
 for period = range
     x = importdata(['x',int2str(period),'.txt']);
     y = importdata(['y',int2str(period),'.txt']);
@@ -66,9 +66,9 @@ for period = range
     d = sqrt(x_e.^2 + y_e.^2);
     rmse = sqrt(sum(d.^2)/length(d));
     figure()
-    plot(x,y);
+    plot(x,y);%,'-b.'
     hold on
-    plot(x_original,y_original,'--');
+    plot(x_original,y_original,'--'); %r
     xlabel('x');
     ylabel('y');
     title(['ROV period ',int2str(ROV_period)])
