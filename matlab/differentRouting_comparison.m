@@ -10,6 +10,7 @@ semilogy(range, adap_rmse,'-r*','MarkerSize',5);
 grid on;
 hold on;
 %semilogy(ones(1,2)*max_ROV_period_theo,[10^-5 , 10^5],'--k');
+axis([1 60 10^-3 10^4]);
 title('RMSE');
 xlabel('ROV period [s]');
 ylabel('RMSE');
@@ -175,7 +176,7 @@ end
 figure(2)
 plot(range, adap_ROV_pdr,'-mx','MarkerSize',8);
 grid on;
-hold on;
+%hold on;
 %plot(ones(1,2)*max_ROV_period_theo,[10^-5 , 10^5],'--k');
 axis([1 60 0 1]);
 title('ROV packet delivery ratio');

@@ -14,7 +14,7 @@ for period = range
     %data contains 6 values
     % data(1) = ROV throughput
     % data(2) = ROV Packet Error Rate
-    % data(3) = CTR throughput
+    % data(3) = CTR throughputc
     % data(4) = CTR Packet Error Rate
     % data(5) = CTR sent packets
     % data(6) = ROV sent packets
