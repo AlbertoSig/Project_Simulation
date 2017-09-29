@@ -31,7 +31,7 @@ m = [v1,v2,v3,v4,v5,v6,v7];
 MAX_packet_sent = 100;
 packet_sent = 0;
 
-N_iteration = 7*6*5*4*3*2;
+N_iteration = 2*7*6*5*4*3*2;
 
 [row,column] = size(m);
 rand_matrix = zeros(row,column,N_iteration);
@@ -147,8 +147,8 @@ for j=1:N_iteration
         end
         packet_sent = packet_sent + 1;
     end %end while
-    average_ROV_delay(j) = sum(rx_ROV(1:rx_ROV_index-1) - tx_ROV(1:rx_ROV_index-1))/(rx_ROV_index-1);
-    average_CTR_delay(j) = sum(rx_CTR(1:rx_CTR_index-1) - tx_CTR(1:rx_CTR_index-1))/(rx_CTR_index-1);
+    average_ROV_delay(j) = sum(rx_ROV(1:rx_ROV_index-1) - tx_ROV(1:rx_ROV_index-1)+1)/(rx_ROV_index-1);
+    average_CTR_delay(j) = sum(rx_CTR(1:rx_CTR_index-1) - tx_CTR(1:rx_CTR_index-1)+1)/(rx_CTR_index-1);
     rand_matrix(:,:,j) = y;
 
 end
