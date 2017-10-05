@@ -2,10 +2,10 @@ clear;
 %close all;
 save_flag = 1;
 n_relay = 0;
-load(['posBasedRt_path.mat']);%load('prova_path.mat');%
+load('prova_path.mat');%load(['posBasedRt_path.mat']);%
 
 dir = 'simPosBasedRt_NewPath';
-range = 50:25:1000; %1:1:60;
+range = 1:1:60;
 for period = range
     x = importdata(['x',int2str(period),'.txt']);
     y = importdata(['y',int2str(period),'.txt']);
@@ -61,10 +61,10 @@ for period = range
     ROV_pdr = CTR_rcv_pkts/ROV_sent_pkts;
     CTR_pdr = ROV_rcv_pkts/CTR_sent_pkts;    
 
-    %x_e = x_original - x;
-    %y_e = y_original - y;
-    %d = sqrt(x_e.^2 + y_e.^2);
-    %rmse = sqrt(sum(d.^2)/length(d));
+    x_e = x_original - x;
+    y_e = y_original - y;
+    d = sqrt(x_e.^2 + y_e.^2);
+    rmse = sqrt(sum(d.^2)/length(d));
     figure()
     plot(x,y);%,'-b.'
     hold on
