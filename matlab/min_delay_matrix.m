@@ -12,7 +12,7 @@
 % end
 % sum_del = CTR_del + ROV_del;
 
-load('delay_matrix_newSlotDuration.mat');
+load('delay_matrix_newSlotDuration_sinPath.mat');
 [min_del_ROV,index_ROV] = min(ROV_del);
 [min_del_CTR,index_CTR] = min(CTR_del);
 [min_del_sum,index_sum] = min(sum_del);
