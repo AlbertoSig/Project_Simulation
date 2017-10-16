@@ -2,7 +2,7 @@ clear;
 close all;
 save_flag = 1;
 load('original_path.mat');
-dir = 'simTDMAFRAME_pipeline2_3Relay';
+dir = 'path';
 range = 1:1:60;
 for period = range
     x = importdata(['x',int2str(period),'.txt']);
@@ -42,22 +42,20 @@ for period = range
     ROV_pdd_std = data(11);
     CTR_pdd = data(12);
     CTR_pdd_std = data(13);
-    if data(14) == 0
-        type = 'constant';
-    else
-        type = 'adaptive';
-    end
-    if data(15) == 0
-        ack = 'ack_pgbk';
-    else
-        ack = 'ack_imm';
-    end
-    slot_duration = data(16);
-    number_nodes = data(17);
+    slot_duration = data(14);
+    number_nodes = data(15);
+    CTR_rtt = data(16);
+    CTR_sent_pkts_APP = data(17);
+    ROV_sent_pkts_APP = data(18);
+    CTR_rcv_pkts_APP = data(19);
+    ROV_rcv_pkts_APP = data(20);
     
     mean_th = (ROV_th + CTR_th)/2;
     ROV_pdr = CTR_rcv_pkts/ROV_sent_pkts;
-    CTR_pdr = ROV_rcv_pkts/CTR_sent_pkts;    
+    CTR_pdr = ROV_rcv_pkts/CTR_sent_pkts;  
+    
+    ROV_pdr_APP = CTR_rcv_pkts_APP/ROV_sent_pkts_APP;
+    CTR_pdr_APP = ROV_rcv_pkts_APP/CTR_sent_pkts_APP;
 
     x_e = x_original - x;
     y_e = y_original - y;
@@ -73,9 +71,9 @@ for period = range
     legend('rov path','original path');
     %axis([900 1100 -100 100]);
     if save_flag == 1
-        savefig(['ROV_period_increasingRelay/',dir,'/adaptiveROVpath_ROVperiod',int2str(ROV_period),ack,'.fig'])
-        saveas(gcf,['ROV_period_increasingRelay/',dir,'/adaptiveROVpath_ROVperiod',int2str(ROV_period),ack,'.png']);
-        save(['ROV_period_increasingRelay/',dir,'/adaptiveROVpath_ROVperiod',int2str(ROV_period),'.mat']);
+        savefig(['simTesi/staticRt/',dir,'/ROVperiod',int2str(ROV_period),'.fig'])
+        saveas(gcf,['simTesi/staticRt/',dir,'/ROVperiod',int2str(ROV_period),'.png']);
+        save(['simTesi/staticRt/',dir,'/ROVperiod',int2str(ROV_period),'.mat']);
     end
     
 end

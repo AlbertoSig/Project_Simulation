@@ -42,18 +42,13 @@ for period = range
     ROV_pdd_std = data(11);
     CTR_pdd = data(12);
     CTR_pdd_std = data(13);
-    if data(14) == 0
-        type = 'constant';
-    else
-        type = 'adaptive';
-    end
-    if data(15) == 0
-        ack = 'ack_pgbk';
-    else
-        ack = 'ack_imm';
-    end
-    slot_duration = data(16);
-    number_nodes = data(17);
+    slot_duration = data(14);
+    number_nodes = data(15);
+    CTR_rtt = data(16);
+    CTR_sent_pkts_APP = data(17);
+    ROV_sent_pkts_APP = data(8);
+    CTR_rcv_pkts_APP = data(19);
+    ROV_rcv_pkts_APP = data(20);
     
     mean_th = (ROV_th + CTR_th)/2;
     ROV_pdr = CTR_rcv_pkts/ROV_sent_pkts;

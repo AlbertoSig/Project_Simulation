@@ -28,5 +28,14 @@ while y_original(i) ~=  100
 end
 x_original = x_original.';
 y_original = y_original.';
-save('original_path.mat','x_original','y_original');
+z_original = ones(length(x_original),1)*-1000;
+t = zeros(length(x_original),1);
+t(1) = 100;
+t_g = 40;
+for i=2:length(t)
+    d = sqrt((x_original(i)-x_original(i-1))^2 + (y_original(i)-y_original(i-1))^2 + (z_original(i)-z_original(i-1))^2);
+    t(i) = t(i-1) + d + t_g;
+end
+%save('original_path.mat','x_original','y_original');
 plot(x_original,y_original)
+csvwrite(['rov_path_multihop',int2str(t_g),'.csv'],[t,x_original,y_original,z_original]);
