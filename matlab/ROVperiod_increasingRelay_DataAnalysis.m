@@ -166,7 +166,7 @@ title('CTR packet delivery delay');
 xlabel('ROV period [s]');
 ylabel('CTR packet delivery delay [s]');
 legend('CTR packet delivery delay');
-axis([1 60 0 50]);
+axis([1 60 0 60]);
 if save_flag == 1
     savefig(['simTesi/flooding_newRt/figure/',dir,'_CTRpdd.fig']);
     saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'_CTRpdd.png']);
@@ -176,7 +176,7 @@ end
 %ROV packet delivery delay
 figure();
 plot(range, adap_ROV_pdd,'-r*','MarkerSize',5);
-axis([1 60 0 100]);
+axis([1 60 0 120]);
 grid on;
 hold on;
 title('ROV packet delivery delay');
