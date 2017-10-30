@@ -1,7 +1,7 @@
 clear;
 close all;
 save_flag = 1;
-load('posBasedRt_path.mat');
+load('original_path.mat');
 dir = 'path';
 range = 1:1:60;
 for period = range
@@ -71,10 +71,10 @@ for period = range
     legend('rov path','original path');
     %axis([900 1100 -100 100]);
     if save_flag == 1
-        savefig(['simTesi/flooding_newRt/',dir,'/ROVperiod',int2str(ROV_period),'.fig'])
-        saveas(gcf,['simTesi/flooding_newRt/',dir,'/ROVperiod',int2str(ROV_period),'.png']);
-        saveas(gcf,['simTesi/flooding_newRt/',dir,'/ROVperiod',int2str(ROV_period),'.eps'],'epsc');
-        save(['simTesi/flooding_newRt/',dir,'/ROVperiod',int2str(ROV_period),'.mat']);
+        savefig(['simTesi/staticRt/',dir,'/ROVperiod',int2str(ROV_period),'.fig'])
+        saveas(gcf,['simTesi/staticRt/',dir,'/ROVperiod',int2str(ROV_period),'.png']);
+        saveas(gcf,['simTesi/staticRt/',dir,'/ROVperiod',int2str(ROV_period),'.eps'],'epsc');
+        save(['simTesi/staticRt/',dir,'/ROVperiod',int2str(ROV_period),'.mat']);
     end
     
 end
