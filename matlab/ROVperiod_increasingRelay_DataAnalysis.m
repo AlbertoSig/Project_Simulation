@@ -15,7 +15,7 @@ adap_ROV_pdr_APP = zeros(1,length(range));
 adap_CTR_pdr_APP = zeros(1,length(range));
 for k = range
     i = i+1;
-    load(['simTesi/staticRt/path/ROVperiod',int2str(k),'.mat'])
+    load(['simTesi/flooding_newRt/path/ROVperiod',int2str(k),'.mat'])
     adap_rmse(i) = rmse;
     adap_ROV_pdr(i) = ROV_pdr;
     adap_CTR_pdr(i) = CTR_pdr;
@@ -49,9 +49,9 @@ ylabel('RMSE');
 legend('rmse');
 axis([1 60 10^-3 10000]);
 if save_flag == 1
-    savefig(['simTesi/staticRt/figure/',dir,'_RMSE.fig']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'_RMSE.png']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'_RMSE.eps'],'epsc');
+    savefig(['simTesi/flooding_newRt/figure/',dir,'_RMSE.fig']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'_RMSE.png']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'_RMSE.eps'],'epsc');
 end
 
 %ROV Throughput
@@ -65,9 +65,9 @@ ylabel('ROV throughput [bit/s]');
 legend('ROV throughput');
 axis([1 60 0 300]);
 if save_flag == 1
-    savefig(['simTesi/staticRt/figure/',dir,'_ROV_th.fig']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'_ROV_th.png']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'_ROV_th.eps'],'epsc');
+    savefig(['simTesi/flooding_newRt/figure/',dir,'_ROV_th.fig']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'_ROV_th.png']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'_ROV_th.eps'],'epsc');
 end
 
 %CTR Throughput
@@ -81,9 +81,9 @@ ylabel('CTR throughput [bit/s]');
 legend('CTR throughput');
 axis([1 60 0 750]);
 if save_flag == 1
-    savefig(['simTesi/staticRt/figure/',dir,'_CTR_th.fig']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'_CTR_th.png']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'_CTR_th.eps'],'epsc');
+    savefig(['simTesi/flooding_newRt/figure/',dir,'_CTR_th.fig']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'_CTR_th.png']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'_CTR_th.eps'],'epsc');
 end
 
 
@@ -98,9 +98,9 @@ xlabel('ROV period [s]');
 ylabel('ROV packet delivery ratio');
 legend('ROV packet delivery ratio','Location','east');
 if save_flag == 1
-    savefig(['simTesi/staticRt/figure/',dir,'ROV_pdr.fig']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'ROV_pdr.png']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'ROV_pdr.eps'],'epsc');
+    savefig(['simTesi/flooding_newRt/figure/',dir,'ROV_pdr.fig']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'ROV_pdr.png']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'ROV_pdr.eps'],'epsc');
 end
 
 %CTR packet delivery ratio
@@ -114,9 +114,9 @@ xlabel('ROV period [s]');
 ylabel('CTR packet delivery ratio');
 legend('CTR packet delivery ratio','Location','east');
 if save_flag == 1
-    savefig(['simTesi/staticRt/figure/',dir,'CTR_pdr.fig']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'CTR_pdr.png']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'CTR_pdr.eps'],'epsc');
+    savefig(['simTesi/flooding_newRt/figure/',dir,'CTR_pdr.fig']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'CTR_pdr.png']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'CTR_pdr.eps'],'epsc');
 end
 
 
@@ -132,9 +132,9 @@ xlabel('ROV period [s]');
 ylabel('ROV packet delivery ratio(APP)');
 legend('ROV packet delivery ratio','Location','east');
 if save_flag == 1
-    savefig(['simTesi/staticRt/figure/',dir,'ROV_pdr.fig']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'ROV_pdr.png']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'ROV_pdr.eps'],'epsc');
+    savefig(['simTesi/flooding_newRt/figure/',dir,'ROV_pdr.fig']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'ROV_pdr.png']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'ROV_pdr.eps'],'epsc');
 end
 
 %CTR packet delivery ratio
@@ -148,9 +148,9 @@ xlabel('ROV period [s]');
 ylabel('CTR packet delivery ratio(APP)');
 legend('CTR packet delivery ratio','Location','east');
 if save_flag == 1
-    savefig(['simTesi/staticRt/figure/',dir,'CTR_pdr.fig']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'CTR_pdr.png']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'CTR_pdr.eps'],'epsc');
+    savefig(['simTesi/flooding_newRt/figure/',dir,'CTR_pdr.fig']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'CTR_pdr.png']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'CTR_pdr.eps'],'epsc');
 end
 
 
@@ -166,17 +166,17 @@ title('CTR packet delivery delay');
 xlabel('ROV period [s]');
 ylabel('CTR packet delivery delay [s]');
 legend('CTR packet delivery delay');
-axis([1 60 0 3000]);
+axis([1 60 0 50]);
 if save_flag == 1
-    savefig(['simTesi/staticRt/figure/',dir,'_CTRpdd.fig']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'_CTRpdd.png']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'_CTRpdd.eps'],'epsc');
+    savefig(['simTesi/flooding_newRt/figure/',dir,'_CTRpdd.fig']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'_CTRpdd.png']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'_CTRpdd.eps'],'epsc');
 end
 
 %ROV packet delivery delay
 figure();
 plot(range, adap_ROV_pdd,'-r*','MarkerSize',5);
-axis([1 60 0 4000]);
+axis([1 60 0 100]);
 grid on;
 hold on;
 title('ROV packet delivery delay');
@@ -184,15 +184,15 @@ xlabel('ROV period [s]');
 ylabel('Packet delivery delay [s]');
 legend('ROV packet delivery delay');
 if save_flag == 1
-    savefig(['simTesi/staticRt/figure/',dir,'_ROVpdd.fig']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'_ROVpdd.png']);
-    saveas(gcf,['simTesi/staticRt/figure/',dir,'_ROVpdd.eps'],'epsc');
+    savefig(['simTesi/flooding_newRt/figure/',dir,'_ROVpdd.fig']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'_ROVpdd.png']);
+    saveas(gcf,['simTesi/flooding_newRt/figure/',dir,'_ROVpdd.eps'],'epsc');
 end
 
 
 
 if save_flag == 1
-    save(['simTesi/staticRt/figure/',dir,'.mat'],'adap_rmse','adap_ROV_pdr',...
+    save(['simTesi/flooding_newRt/figure/',dir,'.mat'],'adap_rmse','adap_ROV_pdr',...
     'adap_CTR_pdr','adap_ROV_th','adap_CTR_th','adap_CTR_pdd','adap_ROV_pdd',...
     'slot_duration','adap_CTR_pdd_CI','adap_ROV_pdd_CI','adap_ROV_pdr_APP',...
     'adap_CTR_pdr_APP');
