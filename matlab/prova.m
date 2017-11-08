@@ -8,7 +8,7 @@ w= 0;
     P = 10^(P_dB/10);
 i = 0;
 freq = 22.5:0.01:27.5;
-%for f = freq
+for f = freq
     i = i+1;
     a_dB = 0.11*f^2/(1+f^2) + 44*f^2/(4100+f)+f^2*2.75*10^(-4)+0.003;
     a = 10^(a_dB/10);
@@ -30,11 +30,11 @@ freq = 22.5:0.01:27.5;
     A = (d*1000)^k * a^(d);
     
     snr_dB(i) = 10*log10(P/(A*N*length(freq)));
-    snr(i) = 1/(A*N);
-%end
+    snr(i) = 0.01/(A*N);
+end
 figure(1);
 %plot(freq,snr_dB)
 hold on
 axis([22.5 27.5 -170 -70]);
 B = 5000;
-c = B*P*log2(1+snr);
+c = sum(log2(1+snr));
