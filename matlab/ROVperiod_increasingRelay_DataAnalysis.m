@@ -15,7 +15,7 @@ adap_ROV_pdr_APP = zeros(1,length(range));
 adap_CTR_pdr_APP = zeros(1,length(range));
 for k = range
     i = i+1;
-    load(['simTesi/flooding_newRt/path/ROVperiod',int2str(k),'.mat'])
+    load(['simTesi/flooding_newRt/jamming_50_8000/path/ROVperiod',int2str(k),'.mat'])
     adap_rmse(i) = rmse;
     adap_ROV_pdr(i) = ROV_pdr;
     adap_CTR_pdr(i) = CTR_pdr;
@@ -29,7 +29,7 @@ for k = range
     adap_CTR_pdr_APP(i) = CTR_pdr_APP;
 end
 max_ROV_period_theo = slot_duration*number_nodes;
-save_flag = 1;
+save_flag = 0;
 
 %RMSE
 index = find(adap_rmse == 0);

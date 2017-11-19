@@ -1,7 +1,7 @@
 clear;
 close all;
 save_flag = 1;
-load('posBasedRt_path.mat');
+load('original_path.mat');
 dir = 'path';
 range = 1:1:60;
 for period = range
@@ -57,10 +57,10 @@ for period = range
     ROV_pdr_APP = CTR_rcv_pkts_APP/ROV_sent_pkts_APP;
     CTR_pdr_APP = ROV_rcv_pkts_APP/CTR_sent_pkts_APP;
 
-    x_e = x_original - x;
-    y_e = y_original - y;
-    d = sqrt(x_e.^2 + y_e.^2);
-    rmse = sqrt(sum(d.^2)/length(d));
+%     x_e = x_original - x;
+%     y_e = y_original - y;
+%     d = sqrt(x_e.^2 + y_e.^2);
+%     rmse = sqrt(sum(d.^2)/length(d));
     figure()
     plot(x,y);
     hold on

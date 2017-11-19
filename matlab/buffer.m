@@ -17,7 +17,7 @@ clear
 %     time = importdata(['time_buffer',int2str(j),'.txt']);
 % end
 
-load('bufferFlooding2.mat');
+load('bufferPosBasedRt3.mat');
 
 figure();
 subplot(4,1,1)
@@ -27,25 +27,25 @@ xlabel('time [s]');
 ylabel('buffer size');
 %hold on;
 grid on;
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 subplot(4,1,2)
 plot(time,R2(1,:),'-b.','MarkerSize',12);
 grid on;
 title('Buffer size relay R2 (AUV period 1 s)');
 xlabel('time [s]');
 ylabel('buffer size');
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 subplot(4,1,3)
 plot(time,R3(1,:),'-g^','MarkerSize',4,'MarkerFaceColor','g');
 grid on;
 title('Buffer size relay R3 (AUV period 1 s)');
 xlabel('time [s]');
 ylabel('buffer size');
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 subplot(4,1,4)
 plot(time,R4(1,:),'-mx','MarkerSize',8);
 grid on;
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 title('Buffer size relay R4 (AUV period 1 s)');
 xlabel('time [s]');
 ylabel('buffer size');
@@ -60,25 +60,25 @@ xlabel('time [s]');
 ylabel('buffer size');
 %hold on;
 grid on;
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 subplot(4,1,2)
 plot(time,R2(30,:),'-b.','MarkerSize',12);
 grid on;
 title('Buffer size relay R2 (AUV period 30 s)');
 xlabel('time [s]');
 ylabel('buffer size');
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 subplot(4,1,3)
 plot(time,R3(30,:),'-g^','MarkerSize',4,'MarkerFaceColor','g');
 grid on;
 title('Buffer size relay R3 (AUV period 30 s)');
 xlabel('time [s]');
 ylabel('buffer size');
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 subplot(4,1,4)
 plot(time,R4(30,:),'-mx','MarkerSize',8);
 grid on;
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 title('Buffer size relay R4 (AUV period 30 s)');
 xlabel('time [s]');
 ylabel('buffer size');
@@ -91,25 +91,25 @@ xlabel('time [s]');
 ylabel('buffer size');
 %hold on;
 grid on;
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 subplot(4,1,2)
 plot(time,R2(60,:),'-b.','MarkerSize',12);
 grid on;
 title('Buffer size relay R2 (AUV period 60 s)');
 xlabel('time [s]');
 ylabel('buffer size');
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 subplot(4,1,3)
 plot(time,R3(60,:),'-g^','MarkerSize',4,'MarkerFaceColor','g');
 grid on;
 title('Buffer size relay R3 (AUV period 60 s)');
 xlabel('time [s]');
 ylabel('buffer size');
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 subplot(4,1,4)
 plot(time,R4(60,:),'-mx','MarkerSize',8);
 grid on;
-axis([0 40000 0 100]);
+axis([0 40000 0 3]);
 title('Buffer size relay R4 (AUV period 60 s)');
 xlabel('time [s]');
 ylabel('buffer size');
