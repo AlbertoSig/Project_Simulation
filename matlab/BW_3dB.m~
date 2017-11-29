@@ -33,7 +33,6 @@ for f = freq
     snr(i) = 1/(A(i)*N(i));
     
 end
-
 %figure()
 % plot(freq,10*log10(snr));
 % grid on
@@ -43,5 +42,5 @@ index_Bw = find(snr > snr_0/2);
 f_min = freq(index_Bw(1));
 f_max = freq(index_Bw(end));
 B = f_max-f_min;
-P = B*100*sum(N(index_Bw(1):index_Bw(end)))/sum(1./A(index_Bw(1):index_Bw(end)));
+P = B*20*sum(N(index_Bw(1):index_Bw(end)))/sum(1./A(index_Bw(1):index_Bw(end)));
 C = sum(log2(1+P./(B.*A(index_Bw(1):index_Bw(end)).*N(index_Bw(1):index_Bw(end)))));
